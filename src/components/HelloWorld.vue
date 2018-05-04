@@ -2,16 +2,19 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-     <Rtc></Rtc>
+     <proj></proj>
 
   </div>
 </template>
 
 <script>
-import Rtc from "./Rtc";
+  //import Rtc from "./Rtc";
+  //import message from "./message";
+import  proj from "./proj"
 export default {
   name: 'HelloWorld',
-  components: {Rtc},
+  //components: {Rtc,message},
+  components: {proj},
   data () {
     return {
       msg: 'Welcome'

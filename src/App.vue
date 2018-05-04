@@ -2,12 +2,17 @@
   <div id="app">
     <!--<img src="./assets/logo.png">-->
     <router-view/>
+    <message></message>
+
   </div>
 </template>
 
 <script>
+//import Message from "./components/message";
+import proj from "./components/proj";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {proj}
 }
 </script>
 
