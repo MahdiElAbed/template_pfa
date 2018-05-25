@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+      <div class="navbar">
+          <h1>{{ msg }}</h1>
+
+      </div>
+<br/><br/>
      <proj></proj>
 
   </div>
@@ -17,7 +20,7 @@ export default {
   components: {proj},
   data () {
     return {
-      msg: 'Welcome'
+      msg: 'Start Your Presentation Here'
     }
   }
 }
@@ -34,9 +37,45 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
+  margin:  10px;
 }
 a {
   color: #42b983;
 }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #7FFFD4;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.navbar {
+    overflow: hidden;
+    background-color: #7FFFD4;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+
+/* Main content */
+
+.fa fa-wechat{
+       position: absolute;
+       /* Adjust these values accordingly */
+       top: 5px;
+       left: 50px;
+   }
+
+
+
 </style>

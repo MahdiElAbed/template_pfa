@@ -1,21 +1,24 @@
 <template>
     <div class="rtc">
         <div id="demoContainer">
-            <div id="connectControls">
-                <input type="checkbox" checked="checked" id="shareAudio"/>Share audio
-                <input type="checkbox" checked="checked" id="shareVideo"/>Share video<br/>
-                <input type="checkbox" checked="checked" id="expectAudio"/>Expect audio
-                <input type="checkbox" checked="checked" id="expectVideo"/>Expect video<br/>
 
-                <input type="checkbox" id="useFreshIce"
-                       v-on:click="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/>Fresh Ice<br/>
-                <button id="connectButton" v-on:click="connect()">Connect</button>
-                <button id="sendMessage">sendMessage</button>
-                <button id="disconnectButton" v-on:click="disconnect()">Disconnect</button>
+            <div id="connectControls">
+                <div class="sidenav">
+                    <div class="list-group">
+                        <h3><p class="text-danger ">Options</p></h3>
+                        <li class="list-group-item"><input type="checkbox" checked="checked" id="shareAudio"/>Share audio</li>
+                        <li class="list-group-item"><input type="checkbox" checked="checked" id="shareVideo"/>Share video</li>
+                        <li class="list-group-item"><input type="checkbox" checked="checked" id="expectAudio"/>Expect audio</li>
+                        <li class="list-group-item"><input type="checkbox" checked="checked" id="expectVideo"/>Expect video</li>
+                        <li class="list-group-item"><input type="checkbox" id="useFreshIce"
+                                                           v-on:click="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/>Fresh Ice</li></div></div><br/>
+            <br><br/><button type="button" class="btn btn-success" id="connectButton" v-on:click="connect()">Connect</button>
+                <button id="sendMessage" type="button" class="btn btn-primary">sendMessage</button>
+                <button id="disconnectButton" type="button" class="btn btn-danger" v-on:click="disconnect()">Disconnect</button>
                 <br/>
-                <button id="hangupButton" disabled="disabled" v-on:click="hangup()">Hangup</button>
-                <div id="iam">Not yet connected...</div>
                 <br/>
+                <button id="hangupButton" disabled="disabled" type="button" class="btn btn-danger"   v-on:click="hangup()">Hangup</button><br/>
+                <br/><div id="iam">Not yet connected...</div>
                 <strong>Connected users:</strong>
                 <div id="otherClients"></div>
                 <div id="acceptCallBox"> <!-- Should be initially hidden using CSS -->
@@ -26,8 +29,8 @@
                     <video autoplay="autoplay" id="selfVideo" class="easyrtcMirror" muted="muted" volume="0"></video>
                     <video autoplay="autoplay" id="callerVideo"></video>
                     <div id="acceptCallLabel"></div>
-                    <button id="callAcceptButton">Accept</button>
-                    <button id="callRejectButton">Reject</button>
+                    <button id="callAcceptButton" type="button" class="btn btn-success" >Accept</button>
+                    <button id="callRejectButton" type="button" class="btn btn-danger" >Reject</button>
                 </div>
             </div>
             <div id="audioSinkButtons">
@@ -247,15 +250,63 @@
 
     ul {
         list-style-type: none;
-        padding: 0;
+
     }
 
     li {
-        display: inline-block;
-        margin: 0 10px;
+
+        margin: 5px;
+        padding: 15px;
+        font-size: 15px;
     }
 
     a {
         color: #42b983;
     }
+    body {
+
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        overflow: hidden;
+        background-color: #f2f2f2;
+    }
+    .sidenav {
+        height: 100%; /* Full-height: remove this if you want "auto" height */
+        width: 200px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: #111; /* Black */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+    }
+
+    /* The navigation menu links */
+
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Style page content */
+    .main {
+        margin-left: 160px; /* Same as the width of the sidebar */
+        padding: 0px 10px;
+    }
+
+    /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 10px;}
+        .sidenav a {font-size: 18px;}
+    }
+
 </style>
